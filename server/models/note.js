@@ -1,14 +1,5 @@
 const mongoose = require('mongoose')
-
-const url = process.env.MONGODB_URL
-
-mongoose.connect(url)
-    .then(result => {
-        console.log("Connection successful")
-    })
-    .catch((error) => {
-        console.log('Error connecting to MongoDB:', error.message)
-    })
+require('dotenv').config()
 
 const noteSchema = new mongoose.Schema({
     title: {
@@ -23,6 +14,10 @@ const noteSchema = new mongoose.Schema({
         type: Date, 
         required: true
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    }
 })
 
 noteSchema.set('toJSON', {

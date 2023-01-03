@@ -21,6 +21,10 @@
     
 }
 
+.content {
+    text-align: left;
+}
+
 .buttons{
     display: flex;
     justify-content: center;
